@@ -1,0 +1,85 @@
+<!-- Header with Navbar -->
+<header class="navbar">
+  <div class="navbar-content">
+    <div class="logo">PDF Toolkit</div>
+    <nav class="nav-links">
+      <a routerLink="/">Home</a>
+      <a routerLink="/merge-pdf">Merge</a>
+      <a routerLink="/split-pdf">Split</a>
+      <a routerLink="/compress-pdf">Compress</a>
+
+      <!-- Dropdown for all tools -->
+      <div
+        class="dropdown"
+        (mouseenter)="onMouseEnter()"
+        (mouseleave)="onMouseLeave()"
+      >
+        <button class="dropbtn">ALL PDF TOOLS ▾</button>
+        <div class="mega-dropdown" [ngClass]="{ show: showDropdown }">
+          <!-- ORGANIZE PDF -->
+          <div class="dropdown-column">
+            <h4>ORGANIZE PDF</h4>
+            <a routerLink="/merge-pdf"><i class="fas fa-file-merge"></i> Merge PDF</a>
+            <a routerLink="/split-pdf"><i class="fas fa-cut"></i> Split PDF</a>
+            <a routerLink="/remove-pages"><i class="fas fa-file-minus"></i> Remove pages</a>
+            <a routerLink="/extract-pages"><i class="fas fa-file-export"></i> Extract pages</a>
+            <a routerLink="/organize"><i class="fas fa-th-list"></i> Organize PDF</a>
+            <a routerLink="/scan"><i class="fas fa-print"></i> Scan to PDF</a>
+          </div>
+
+          <!-- OPTIMIZE PDF -->
+          <div class="dropdown-column">
+            <h4>OPTIMIZE PDF</h4>
+            <a routerLink="/compress-pdf"><i class="fas fa-compress"></i> Compress PDF</a>
+            <a routerLink="/repair"><i class="fas fa-tools"></i> Repair PDF</a>
+            <a routerLink="/ocr"><i class="fas fa-search"></i> OCR PDF</a>
+          </div>
+
+          <!-- CONVERT TO PDF -->
+          <div class="dropdown-column">
+            <h4>CONVERT TO PDF</h4>
+            <a routerLink="/jpg-to-pdf"><i class="fas fa-file-image"></i> JPG to PDF</a>
+            <a routerLink="/word-to-pdf"><i class="fas fa-file-word"></i> WORD to PDF</a>
+            <a routerLink="/ppt-to-pdf"><i class="fas fa-file-powerpoint"></i> POWERPOINT to PDF</a>
+            <a routerLink="/excel-to-pdf"><i class="fas fa-file-excel"></i> EXCEL to PDF</a>
+            <a routerLink="/html-to-pdf"><i class="fas fa-code"></i> HTML to PDF</a>
+          </div>
+
+          <!-- EDIT PDF -->
+          <div class="dropdown-column">
+            <h4>EDIT PDF</h4>
+            <a routerLink="/rotate"><i class="fas fa-sync-alt"></i> Rotate PDF</a>
+            <a routerLink="/page-numbers"><i class="fas fa-list-ol"></i> Add page numbers</a>
+            <a routerLink="/watermark"><i class="fas fa-tint"></i> Add watermark</a>
+            <a routerLink="/crop"><i class="fas fa-crop"></i> Crop PDF</a>
+            <a routerLink="/edit"><i class="fas fa-edit"></i> Edit PDF</a>
+          </div>
+
+          <!-- PDF SECURITY -->
+          <div class="dropdown-column">
+            <h4>PDF SECURITY</h4>
+            <a routerLink="/unlock"><i class="fas fa-unlock-alt"></i> Unlock PDF</a>
+            <a routerLink="/protect"><i class="fas fa-lock"></i> Protect PDF</a>
+            <a routerLink="/sign"><i class="fas fa-signature"></i> Sign PDF</a>
+            <a routerLink="/redact"><i class="fas fa-user-secret"></i> Redact PDF</a>
+            <a routerLink="/compare"><i class="fas fa-columns"></i> Compare PDF</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<div class="card-grid">
+  <div class="tool-card" *ngFor="let tool of tools" [routerLink]="tool.route">
+    <img [src]="tool.image" [alt]="tool.title" />
+    <h3>{{ tool.title }}</h3>
+    <p>{{ tool.description }}</p>
+  </div>
+</div>
+
+
+
+ <!-- Footer -->
+ <footer class="page-footer">
+  <p>© 2025 PDF Toolkit. All rights reserved.</p>
+</footer>
