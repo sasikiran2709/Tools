@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-home',
-  standalone:true,
-  imports:[CommonModule,RouterModule],
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
@@ -19,7 +19,7 @@ export class HomeComponent {
   onMouseLeave() {
     this.showDropdown = false;
   }
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   tools = [
     {
@@ -43,21 +43,23 @@ export class HomeComponent {
     {
       title: 'PDF to Word',
       description: 'Convert PDF to word',
-      route: '/compress-pdf',
+      route: '/pdf-word',
       image: 'assets/pdftow.svg'
     },
     {
       title: 'Word to PDF',
       description: 'Convert Word to PDF',
-      route: '/compress-pdf',
+      route: '/word-pdf',
       image: 'assets/wordtopd.svg'
     },
     {
       title: 'Video Compressor',
       description: 'Compressor for all videos',
-      route: '/compress-pdf',
+      route: '/video-c',
       image: 'assets/compressv.svg'
-    }
+    },
+   
+   
   ];
 
   navigate(route: string) {

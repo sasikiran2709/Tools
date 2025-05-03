@@ -9,6 +9,7 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -58,9 +59,11 @@
               "extractLicenses": false,
               "sourceMap": true
             }
+            
           },
           "defaultConfiguration": "production"
         },
+        
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
