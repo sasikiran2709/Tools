@@ -8,7 +8,7 @@ import { WordtopdfComponent } from './wordtopdf/wordtopdf.component';
 import { VideocompressorComponent } from './videocompressor/videocompressor.component';
 
 export const routes: Routes = [
-    {path:'', component:HomeComponent},
+    {path:'/', component:HomeComponent},
     {path:'merge-pdf', component:MergepdfComponent}, 
     {path:'split-pdf', component:SplitpdfComponent},   
     {path:'compress-pdf', component:CompresspdfComponent},

@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { HttpEvent, HttpEventType } from '@angular/common/http';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { ToolformatsService } from '../toolformats.service';
 
 @Component({
@@ -16,15 +15,18 @@ export class WordtopdfComponent {
   progress = 0;
   errorMessage = '';
 
+  @ViewChild('fileInput') fileInputRef!: ElementRef;
+
   constructor(private toolformatsService: ToolformatsService) {}
 
-  onFileSelected(event: any): void {
+  onFileSelectedAndConvert(event: any): void {
     this.selectedFile = event.target.files[0];
-    this.errorMessage = '';
-    this.progress = 0;
+    if (this.selectedFile) {
+      this.convertToPdf();
+    }
   }
 
-  onConvertToPdf(): void {
+  convertToPdf(): void {
     if (!this.selectedFile) {
       console.warn('No file selected');
       return;
@@ -35,10 +37,13 @@ export class WordtopdfComponent {
     this.errorMessage = '';
 
     this.toolformatsService.convertWordToPdf(this.selectedFile).subscribe({
-      next: (blob: Blob) => { // Changed from HttpEvent<any> to Blob
-          this.isConverting = false;
-          this.progress = 100;
-          this.toolformatsService.downloadBlob(blob, 'converted.pdf');
+      next: (blob: Blob) => {
+        this.isConverting = false;
+        this.progress = 100;
+        this.toolformatsService.downloadBlob(blob, 'converted.pdf');
+        // Reset the file input to allow for new selections
+        this.fileInputRef.nativeElement.value = '';
+        this.selectedFile = null;
       },
       error: (error: any) => {
         this.isConverting = false;

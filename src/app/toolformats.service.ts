@@ -6,16 +6,17 @@ import { switchMap, catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ToolformatsService {
-  private apiUrl = 'https://localhost:7043/api/WordtoPdf/convert-word-to-pdf';
+  private wordToPdfUrl = 'https://localhost:7043/api/WordtoPdf/convert-word-to-pdf';// word to pdf
+  private videoCompressUrl = 'https://localhost:7043/api/Video/compress-video'; // vedio compressor
 
   constructor() {}
 
-  convertWordToPdf(file: File): Observable<Blob> { // Return Observable<Blob>
+  convertWordToPdf(file: File): Observable<Blob> {
     const formData = new FormData();
     formData.append('wordFile', file, file.name);
 
     return from(
-      fetch(this.apiUrl, {
+      fetch(this.wordToPdfUrl, {
         method: 'POST',
         body: formData,
       })
@@ -23,14 +24,39 @@ export class ToolformatsService {
       switchMap((response: Response) => {
         if (!response.ok) {
           return from(response.text()).pipe(
-            switchMap(errorText => throwError(() => new Error(`HTTP error! status: ${response.status}, body: ${errorText}`))
-          ));
+            switchMap(errorText => throwError(() => new Error(`HTTP error! status: ${response.status}, body: ${errorText}`)))
+          );
         }
         return from(response.blob());
       }),
       catchError((error: any) => {
         console.error('Error during Word to PDF conversion:', error);
         return throwError(() => new Error(`File conversion failed: ${error.message}`));
+      })
+    );
+  }
+
+  compressVideo(file: File): Observable<Blob> {
+    const formData = new FormData();
+    formData.append('videoFile', file, file.name);
+
+    return from(
+      fetch(this.videoCompressUrl, {
+        method: 'POST',
+        body: formData,
+      })
+    ).pipe(
+      switchMap((response: Response) => {
+        if (!response.ok) {
+          return from(response.text()).pipe(
+            switchMap(errorText => throwError(() => new Error(`HTTP error! status: ${response.status}, body: ${errorText}`)))
+          );
+        }
+        return from(response.blob());
+      }),
+      catchError((error: any) => {
+        console.error('Error during video compression:', error);
+        return throwError(() => new Error(`Video compression failed: ${error.message}`));
       })
     );
   }
