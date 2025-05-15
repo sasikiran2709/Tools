@@ -1,8 +1,8 @@
 <header class="navbar">
     <div class="navbar-content">
-      <div class="logo"><img src="assets/logo.svg" alt="tools" height="65px" width="65px"></div>
+      <div class="logo"><img src="assets/ilovepdf.png" alt="tools" height="65px" width="65px"></div>
       <nav class="nav-links">
-        <a routerLink="/" routerLinkActive="active">Home</a>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
         <a routerLink="/merge-pdf">Merge</a>
         <a routerLink="/split-pdf">Split</a>
         <a routerLink="/compress-pdf">Compress</a>
@@ -77,7 +77,7 @@
             <div class="dropdown-column">
               <h4>PDF SECURITY</h4>
               <a routerLink="/unlock"><i class="fas fa-unlock-alt"></i> Unlock PDF</a>
-              <a routerLink="/protect"><i class="fas fa-lock"></i> Protect PDF</a>
+              <a routerLink="/lockpdf"><i class="fas fa-lock"></i> Protect PDF</a>
               <a routerLink="/sign"><i class="fas fa-signature"></i> Sign PDF</a>
               <a routerLink="/redact"><i class="fas fa-user-secret"></i> Redact PDF</a>
               <a routerLink="/compare"><i class="fas fa-columns"></i> Compare PDF</a>
@@ -88,18 +88,18 @@
     </div>
     <div class="auth-buttons">
       <!-- Login -->
-      <div class="login">Login</div>
+      <!-- <div class="login">Login</div> -->
   
       <!-- Sign Up Button -->
-      <div class="signup">
+      <!-- <div class="signup">
         <button class="btn btn-warning">Sign Up</button>
-      </div>
+      </div> -->
     </div>
     <div class="menu-icon">
       <button class="btn-menu">☰</button>
     </div>
     <!-- <div class="menu-container">
-      <div class="dots-menu" (click)="toggleMenu()">
+      <div class="dots-menu bg-warning" (click)="toggleMenu()">
         <div class="dot"></div>
         <div class="dot"></div>
         <div class="dot"></div>

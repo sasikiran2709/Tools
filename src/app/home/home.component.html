@@ -1,15 +1,7 @@
-
-
 <div class="card-grid">
-  <div class="tool-card" *ngFor="let tool of tools"
-   [routerLink]="tool.route">
+  <div class="tool-card" *ngFor="let tool of tools" [routerLink]="tool.route">
     <img [src]="tool.image" [alt]="tool.title" />
     <h3>{{ tool.title }}</h3>
     <p>{{ tool.description }}</p>
-</div>
   </div>
-
-
-
-
-
+</div>

@@ -58,7 +58,42 @@ export class HomeComponent {
       route: '/video-c',
       image: 'assets/compressv.svg'
     },
-   
+    {
+      title: 'Lock Pdf',
+      description: 'Here we can lock your pdf files by password',
+      route: '/lockpdf',
+      image: 'assets/lock.svg'
+    },
+    {
+      title: 'Will be soon',
+      description: 'Will be soon',
+      route: '/',
+      image: ''
+    },
+    {
+      title: 'Will be soon',
+      description: 'Will be soon',
+      route: '/',
+      image: ''
+    },
+    {
+      title: 'Will be soon',
+      description: 'Will be soon',
+      route: '/',
+      image: ''
+    },
+    {
+      title: 'Will be soon',
+      description: 'Will be soon',
+      route: '/',
+      image: ''
+    },
+    {
+      title: 'Will be soon',
+      description: 'Will be soon wait for the updates',
+      route: '/',
+      image: ''
+    },
    
   ];
 

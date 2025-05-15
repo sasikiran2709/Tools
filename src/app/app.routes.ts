@@ -6,15 +6,17 @@ import { SplitpdfComponent } from './splitpdf/splitpdf.component';
 import { CompresspdfComponent } from './compresspdf/compresspdf.component';
 import { WordtopdfComponent } from './wordtopdf/wordtopdf.component';
 import { VideocompressorComponent } from './videocompressor/videocompressor.component';
+import { LockpdfComponent } from './lockpdf/lockpdf.component';
 
 export const routes: Routes = [
-    {path:'/', component:HomeComponent},
+    {path:'', component:HomeComponent},
     {path:'merge-pdf', component:MergepdfComponent}, 
     {path:'split-pdf', component:SplitpdfComponent},   
     {path:'compress-pdf', component:CompresspdfComponent},
     {path:'pdf-word', component:PdftowordComponent},
     {path:'word-pdf', component:WordtopdfComponent},
     {path:'video-c', component:VideocompressorComponent},
+    {path:'lockpdf', component:LockpdfComponent},
    
     
     

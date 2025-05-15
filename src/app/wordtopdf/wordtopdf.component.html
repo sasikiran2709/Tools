@@ -1,20 +1,25 @@
-<div class="container d-flex flex-column align-items-center justify-content-center vh-20">
-  <h1>Convert Word TO PDF files</h1>
-  <div class="mb-3">
-    <input type="file" accept=".docx,.doc" (change)="onFileSelectedAndConvert($event)" class="form-control"
-      #fileInput style="display: none;" />
-      
+<div class="merge-container">
+  <h1>Convert Word To PDF Files</h1>
+  <p>Convert word to  PDFs in the order you want with the easiest word to pdf converter available.</p>
+
+  <!-- Single button to select files and trigger the split process -->
+  <div class="button-container">
+    <button class="select-pdf-btn" (click)="fileInput.click()">Select PDF Files</button>
   </div>
 
-  <button [disabled]="isConverting" (click)="fileInput.click()" class="btn btn-primary ">
-    {{ isConverting ? 'Converting...' : 'Select the Pdf Files' }}
-  </button>
-  
-  <div *ngIf="progress > 0 && progress < 100" class="mt-3">
-    <p>Upload Progress: {{ progress }}%</p>
-    <progress [value]="progress" max="100" class="w-100"></progress>
+  <!-- Hidden input for file selection -->
+  <input #fileInput type="file" accept="application/pdf" multiple (change)="onFileSelectedAndConvert($event)" style="display: none" />
+
+  <!-- Feedback while converting -->
+  <div *ngIf="isConverting" class="converting-feedback">
+    <p>We are Convert  your word to PDFs. Please wait...</p>
+    <div class="progress-container">
+      <div class="progress-bar" [style.width.%]="progress"></div>
+    </div>
   </div>
-  <div *ngIf="errorMessage" class="mt-3">
-    <p class="text-danger">Error: {{ errorMessage }}</p>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="error-message">
+    <p>{{ errorMessage }}</p>
   </div>
 </div>

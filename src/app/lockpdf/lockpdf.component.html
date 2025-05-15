@@ -1,0 +1,34 @@
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">🔒 Lock PDF</h4>
+    </div>
+    <div class="card-body">
+      <p class="card-text">Add a password to protect your PDF file from unauthorized access.</p>
+
+      <!-- File upload -->
+      <div class="mb-3">
+        <label for="pdfUpload" class="form-label">Select PDF:</label>
+        <input type="file" id="pdfUpload" class="form-control" accept="application/pdf" (change)="onFileSelected($event)" />
+      </div>
+
+      <!-- Password input -->
+      <div class="mb-3">
+        <label for="passwordInput" class="form-label">Password:</label>
+        <input type="password" id="passwordInput" [(ngModel)]="password" placeholder="Enter a password" class="form-control" />        
+      </div>
+
+      <!-- Lock button -->
+      <div class="d-grid">
+        <button class="btn btn-success" (click)="lockPdf()" [disabled]="isLocking">
+          {{ isLocking ? '🔐 Locking PDF...' : '🔐 Lock PDF' }}
+        </button>
+      </div>
+
+      <!-- Error message -->
+      <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+</div>

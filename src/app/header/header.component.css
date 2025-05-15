@@ -71,8 +71,9 @@
 }
 
 .nav-links a:hover {
-  color: #007bff;
+  color: #22ff00;
 }
+
 
 
 .nav-links a {
@@ -125,9 +126,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #004aad;
+  background-color: #928d8c;
   color: white;
-  padding: 10px 20px;
+  padding: 0px 20px;
   position: sticky;
   top: 0;
   z-index: 1000;
