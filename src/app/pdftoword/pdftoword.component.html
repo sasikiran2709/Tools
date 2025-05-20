@@ -1,13 +1,25 @@
-
 <div class="merge-container">
-    <h1> PDF to word </h1>
-    <p> PDF in the order you want with the easiest convert PDF to word  available.</p>
-    <div class="button-container">
-      <button class="select-pdf-btn">Select PDF files</button>
-      <div class="icon-container">
-        <div class="icon google-drive"></div>
-        <div class="icon dropbox"></div>
-      </div>
-    </div>
-    <p class="drop-pdf">or drop PDFs here</p>
+  <h1>Convert PDF To Word Files</h1>
+  <p>Convert Pdf  to  Word in the order you want with the easiest Pdf to Word converter available.</p>
+
+  <!-- Single button to select files and trigger the split process -->
+  <div class="button-container">
+    <button class="select-pdf-btn" (click)="fileInput.click()">Select PDF Files</button>
   </div>
+
+  <!-- Hidden input for file selection -->
+  <input #fileInput type="file" accept="application/pdf" multiple (change)="onFileSelected($event)" style="display: none" />
+
+  <!-- Feedback while converting -->
+  <div *ngIf="isConverting" class="converting-feedback">
+    <p>We are Convert  your PDFs to Word. Please wait...</p>
+    <div class="progress-container">
+      <div class="progress-bar" [style.width.%]="progress"></div>
+    </div>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="error-message">
+    <p>{{ errorMessage }}</p>
+  </div>
+</div>

@@ -1,63 +1,145 @@
 .merge-container {
-    text-align: center;
-    margin-top: 50px;
-  }
-  
-  h1 {
-    font-size: 36px;
-    font-weight: bold;
-  }
-  
-  p {
-    font-size: 18px;
-    margin-top: 10px;
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-  }
-  
-  .select-pdf-btn {
-    background-color: #4d6bff;
-    color: white;
-    padding: 10px 30px;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .select-pdf-btn:hover {
-    background-color: #ff1a1a;
-  }
-  
-  .icon-container {
-    display: flex;
-    margin-left: 20px;
-  }
-  
-  .icon {
-    width: 30px;
-    height: 30px;
-    background-size: cover;
-    margin: 0 10px;
-  }
-  
-  /* .google-drive {
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Google_Drive_logo_2023.svg/120px-Google_Drive_logo_2023.svg.png');
-  }
-  
-  .dropbox {
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Dropbox_logo_2017.svg/1024px-Dropbox_logo_2017.svg.png');
-  } */
-  
-  .drop-pdf {
-    font-size: 16px;
-    color: #777;
-    margin-top: 20px;
-    font-style: italic;
-  }
+  text-align: center;
+  margin-top: 50px;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.select-pdf-btn {
+  background-color: #223eca;
+  color: white;
+  padding: 10px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.select-pdf-btn:hover {
+  background-color: #ff1a1a;
+}
+
+.icon-container {
+  display: flex;
+  margin-left: 20px;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  margin: 0 10px;
+}
+
+/* .google-drive {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Google_Drive_logo_2023.svg/120px-Google_Drive_logo_2023.svg.png');
+}
+
+.dropbox {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Dropbox_logo_2017.svg/1024px-Dropbox_logo_2017.svg.png');
+} */
+
+.drop-pdf {
+  font-size: 16px;
+  color: #777;
+  margin-top: 20px;
+  font-style: italic;
+}
+/* Main container for everything */
+.merge-container {
+width: 100%;
+max-width: 600px;
+margin: 0 auto;
+padding: 20px;
+text-align: center;
+background-color: #f9f9f9;
+border-radius: 10px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+font-size: 2rem;
+margin-bottom: 10px;
+}
+
+p {
+font-size: 1rem;
+margin-bottom: 20px;
+color: #666;
+}
+
+/* Button styles */
+.select-pdf-btn {
+background-color: #4caf50;
+color: white;
+font-size: 1rem;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.select-pdf-btn:hover {
+background-color: #45a049;
+}
+
+button {
+padding: 10px 20px;
+background-color: #007bff;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+button:hover {
+background-color: #0056b3;
+}
+
+/* Progress bar container */
+.progress-container {
+width: 100%;
+background-color: #f3f3f3;
+height: 10px;
+margin-top: 20px;
+border-radius: 5px;
+display: inline-block;
+position: relative;
+}
+
+/* Progress bar filling */
+.progress-bar {
+background-color: #4caf50;
+height: 100%;
+border-radius: 5px;
+transition: width 0.3s ease-in-out;
+}
+
+/* Feedback when merging */
+.converting-feedback {
+margin-top: 20px;
+color: #4caf50;
+}
+
+.error-message {
+margin-top: 20px;
+color: #e74c3c;
+font-size: 1.1rem;
+font-weight: bold;
+}

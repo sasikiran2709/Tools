@@ -10,8 +10,10 @@ export class ToolformatsService {
   private videoCompressUrl = 'https://localhost:7043/api/Video/compress-video'; // vedio compressor
   private pdfMergeUrl = 'https://localhost:7043/api/mergepdf/merge'; // merge pdf
   private splitPdfUrl = 'https://localhost:7043/api/splitpdf/split'; //split pdf
-  private lockpdfUrl  = 'https://localhost:7043/api/LockPdf/lockpdfs';
-  
+  private lockpdfUrl  = 'https://localhost:7043/api/LockPdf/lockpdfs'; //lock pdf
+  private pdftowordurl='https://localhost:7043/api/Pdftoword/convert-pdf-to-word'; //pdf to word
+  private compresspdfUrl='https://localhost:7043/api/PdfCompressor/compress';  //pdfcompressor
+
   constructor() { }
 
   convertWordToPdf(file: File): Observable<Blob> {
@@ -151,6 +153,55 @@ export class ToolformatsService {
       })
     );
   }
+pdftoword(file: File): Observable<Blob> {
+    const formData = new FormData();
+    formData.append('pdffile', file);
+  
+    return from(
+    fetch(this.pdftowordurl, {
+      method: 'POST',
+      body: formData
+    })
+  ).pipe(
+    switchMap((response: Response) => {
+      if (!response.ok) {
+        return from(response.text()).pipe(
+          switchMap(text => throwError(() => new Error(text)))
+        );
+      }
+      return from(response.blob());
+    }),
+    catchError((err: any) => {
+      return throwError(() => new Error('PDF failed to convert: ' + err.message));
+    })
+  );
+}
+pdfCompressor(file: File): Observable<Blob> {
+    const formData = new FormData();
+    formData.append('file', file);
+  
+    return from(
+    fetch(this.compresspdfUrl,{
+      method: 'POST',
+      body: formData
+    })
+  ).pipe(
+    switchMap((response: Response) => {
+      if (!response.ok) {
+        return from(response.text()).pipe(
+          switchMap(text => throwError(() => new Error(text)))
+        );
+      }
+      return from(response.blob());
+    }),
+    catchError((err: any) => {
+      return throwError(() => new Error('PDF Compressor Failed: ' + err.message));
+    })
+  );
+}
+
+
+
   downloadBlob(blob: Blob, filename: string): void {
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
